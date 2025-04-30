@@ -105,6 +105,12 @@ h1 {
   font-weight: 600;
   margin-bottom: 10px;
 }
+.Btn-excluir{
+  color: #c0392b;
+  font-weight: 600;
+  margin-bottom: 10px;
+  z-index: 5;
+}
 
 .no-photos {
   text-align: center;
@@ -186,6 +192,7 @@ h1 {
 .toast.error {
   background-color: #e74c3c;
 }
+
 
 /* =============================================
      RESPONSIVIDADE

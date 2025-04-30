@@ -1,30 +1,23 @@
-// Importa o módulo do Express para configurar as Rotas
+// Importando o express para manipular as rotas
 const express = require("express");
 
-// Cria a instância do roteador do express para definir ROTAS
+// Criando um arquivo de rotas pelo Express
 const router = express.Router();
 
-// Importa a configuração do Multer para ligar com uploads de arquivos
+// Importando o middleware de Upload (Multer)
 const upload = require("../config/multer");
 
-// Importa o controlador da IMg, onde tem todas as funções e busca
+// Controlador das imagens funcões lógicas (GET, POST e ETC...)
 const PictureController = require("../controllers/PictureController");
 
-// Definindo a rota POST para criar, e fazer upload da imagem
+// Definindo a rota POST (Upload da Img e Armaz. no DB)
 router.post("/", upload.single("file"), PictureController.create);
 
-// Definindo a rota GET para buscar todas as imagens do DB
+// Definindo a rota GET (Trazer todas as imagens do DB)
 router.get("/", PictureController.findAll);
 
-// Rota para obter uma imagem específica
+// Rota para obter uma imagem especifica
 router.get("/:id/image", PictureController.getImage);
 
-// Definindo a Rota DELETE para apagar imagens
-router.delete("/:id", PictureController.remove);
-
-// Exportando o arquivo para utilizar no app.js
+// Exportando para utilizar em outro arquivo
 module.exports = router;
-
-// localhost:4000/pictures
-// localhost:4000/pictures/67fee070fe681bc3b611aaa5/image
-// https://hospedagem-upl.onrender.com/pictures/67fee070fe681bc3b611aaa5/image
